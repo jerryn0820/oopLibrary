@@ -6,19 +6,36 @@
 
 package oopLibrary;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
- *
+ *oopLibrary project
  * @author jerrynguyen
+ * 15 April 2014
+ * Project Members: Nina Ritchie, Jennifer Sanders
  */
 public class Librarian extends javax.swing.JFrame {
 
+    int intTypeCode;
+    ImageIcon imgBook1 = new ImageIcon(getClass().getResource("enders.jpg"));
+    ImageIcon imgBook2 = new ImageIcon(getClass().getResource("enders.jpg"));
+    ImageIcon imgBook3 = new ImageIcon(getClass().getResource("enders.jpg"));
+    ImageIcon imgBook4 = new ImageIcon(getClass().getResource("enders.jpg"));
+    ImageIcon imgMedia1 = new ImageIcon(getClass().getResource("endersmovie.jpg"));
+    ImageIcon imgMedia2 = new ImageIcon(getClass().getResource("endersmovie.jpg")); 
+    ImageIcon imgMedia3 = new ImageIcon(getClass().getResource("endersmovie.jpg"));
+    ImageIcon imgMedia4 = new ImageIcon(getClass().getResource("endersmovie.jpg"));
     /**
      * Creates new form Librarian
      */
     public Librarian() {
         initComponents();
+        JOptionPane.showMessageDialog(this,
+    "Welcome to the Library!\nPlease start by selecting your category.");
+        intTypeCode = 0;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,21 +45,293 @@ public class Librarian extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlMediaButtons = new javax.swing.JPanel();
+        btnBooks = new javax.swing.JButton();
+        btnMedia = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        pnlShelf = new javax.swing.JPanel();
+        lblItem1 = new javax.swing.JLabel();
+        lblItem2 = new javax.swing.JLabel();
+        lblItem3 = new javax.swing.JLabel();
+        lblItem4 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        btnExit = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("The Library");
+        setName("librarianFrame"); // NOI18N
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+
+        pnlMediaButtons.setBackground(new java.awt.Color(153, 153, 153));
+
+        btnBooks.setText("Books");
+        btnBooks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBooksActionPerformed(evt);
+            }
+        });
+
+        btnMedia.setText("CD/DVD");
+        btnMedia.setToolTipText("");
+        btnMedia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMediaActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Category");
+
+        javax.swing.GroupLayout pnlMediaButtonsLayout = new javax.swing.GroupLayout(pnlMediaButtons);
+        pnlMediaButtons.setLayout(pnlMediaButtonsLayout);
+        pnlMediaButtonsLayout.setHorizontalGroup(
+            pnlMediaButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMediaButtonsLayout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(btnBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+            .addGroup(pnlMediaButtonsLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlMediaButtonsLayout.setVerticalGroup(
+            pnlMediaButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMediaButtonsLayout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(pnlMediaButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16))
+        );
+
+        pnlShelf.setBackground(new java.awt.Color(102, 102, 102));
+        pnlShelf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        lblItem1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oopLibrary/notavailable.jpg"))); // NOI18N
+        lblItem1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblItem1.setMaximumSize(new java.awt.Dimension(45, 65));
+        lblItem1.setMinimumSize(new java.awt.Dimension(45, 65));
+        lblItem1.setPreferredSize(new java.awt.Dimension(45, 65));
+        lblItem1.setSize(new java.awt.Dimension(45, 65));
+        lblItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblItem1MouseClicked(evt);
+            }
+        });
+
+        lblItem2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oopLibrary/notavailable.jpg"))); // NOI18N
+        lblItem2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblItem2.setMaximumSize(new java.awt.Dimension(45, 65));
+        lblItem2.setMinimumSize(new java.awt.Dimension(45, 65));
+        lblItem2.setPreferredSize(new java.awt.Dimension(45, 65));
+        lblItem2.setSize(new java.awt.Dimension(45, 65));
+        lblItem2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblItem2MouseClicked(evt);
+            }
+        });
+
+        lblItem3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oopLibrary/notavailable.jpg"))); // NOI18N
+        lblItem3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblItem3.setMaximumSize(new java.awt.Dimension(45, 65));
+        lblItem3.setMinimumSize(new java.awt.Dimension(45, 65));
+        lblItem3.setPreferredSize(new java.awt.Dimension(45, 65));
+        lblItem3.setSize(new java.awt.Dimension(45, 65));
+        lblItem3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblItem3MouseClicked(evt);
+            }
+        });
+
+        lblItem4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/oopLibrary/notavailable.jpg"))); // NOI18N
+        lblItem4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblItem4.setMaximumSize(new java.awt.Dimension(45, 65));
+        lblItem4.setMinimumSize(new java.awt.Dimension(45, 65));
+        lblItem4.setPreferredSize(new java.awt.Dimension(45, 65));
+        lblItem4.setSize(new java.awt.Dimension(45, 65));
+        lblItem4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblItem4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlShelfLayout = new javax.swing.GroupLayout(pnlShelf);
+        pnlShelf.setLayout(pnlShelfLayout);
+        pnlShelfLayout.setHorizontalGroup(
+            pnlShelfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlShelfLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lblItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(lblItem2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(lblItem3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(lblItem4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        pnlShelfLayout.setVerticalGroup(
+            pnlShelfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlShelfLayout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addGroup(pnlShelfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblItem4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblItem3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblItem2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29))
+        );
+
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblTitle.setText("The Library");
+
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(86, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(pnlMediaButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(175, 175, 175))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblTitle)
+                        .addGap(240, 240, 240))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(pnlShelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90))
+                    .addComponent(btnExit, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(pnlShelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(pnlMediaButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btnExit))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void displayImages()
+    {
+        switch(intTypeCode)
+        {
+            case 1: lblItem1.setIcon(imgBook1);
+                    lblItem2.setIcon(imgBook1);
+                    lblItem3.setIcon(imgBook1);
+                    lblItem4.setIcon(imgBook1);
+                    break;
+            case 2: lblItem1.setIcon(imgMedia1);
+                    lblItem2.setIcon(imgMedia1);
+                    lblItem3.setIcon(imgMedia1);
+                    lblItem4.setIcon(imgMedia1);
+                    break;
+        }
+    }
+    /**
+     * Method to display a new frame with the information of the item.
+     */
+    public void dislayInfoFrame()
+    {
+        if(intTypeCode != 0)
+        {
+        JFrame displayFrame = new displayForm();       
+        displayFrame.setSize(250,300);
+        displayFrame.setVisible(true);
+        displayFrame.setResizable(false);
+        }
+    }
+    
+    private void lblItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblItem1MouseClicked
+        // TODO add your handling code here:
+        dislayInfoFrame();
+    }//GEN-LAST:event_lblItem1MouseClicked
+
+    private void lblItem2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblItem2MouseClicked
+        // TODO add your handling code here:
+        dislayInfoFrame();
+    }//GEN-LAST:event_lblItem2MouseClicked
+
+    private void lblItem3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblItem3MouseClicked
+        // TODO add your handling code here:
+        dislayInfoFrame();
+    }//GEN-LAST:event_lblItem3MouseClicked
+
+    private void lblItem4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblItem4MouseClicked
+        // TODO add your handling code here:
+        dislayInfoFrame();
+    }//GEN-LAST:event_lblItem4MouseClicked
+
+    private void btnBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBooksActionPerformed
+        // TODO add your handling code here:
+        intTypeCode = 1;
+        displayImages();
+    }//GEN-LAST:event_btnBooksActionPerformed
+
+    private void btnMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMediaActionPerformed
+        // TODO add your handling code here:
+        intTypeCode = 2;
+        displayImages();
+    }//GEN-LAST:event_btnMediaActionPerformed
+    /**
+     * button event handler to confirm user from closing.
+     * @param evt 
+     */
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Warning",
+            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
+            {
+            // yes option
+             System.exit(0);   
+            } 
+            else 
+            {
+            // no option
+            }
+    }//GEN-LAST:event_btnExitActionPerformed
+    /**
+     * event handler to confirm user from closing.
+     * @param evt 
+     */
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?", "Warning",
+            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
+            {
+                // yes option
+                System.exit(0);   
+            } 
+            else 
+            {
+            // no option
+                setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+            }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -80,5 +369,16 @@ public class Librarian extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBooks;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnMedia;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblItem1;
+    private javax.swing.JLabel lblItem2;
+    private javax.swing.JLabel lblItem3;
+    private javax.swing.JLabel lblItem4;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JPanel pnlMediaButtons;
+    private javax.swing.JPanel pnlShelf;
     // End of variables declaration//GEN-END:variables
 }
