@@ -31,8 +31,9 @@
                   <Component id="lblTitle" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lblAuthor" min="-2" max="-2" attributes="0"/>
                   <Component id="lblPrice" min="-2" max="-2" attributes="0"/>
+                  <Component id="yearLbl" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="188" max="32767" attributes="0"/>
+              <EmptySpace pref="147" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -45,7 +46,9 @@
               <Component id="lblAuthor" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Component id="lblPrice" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="133" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="yearLbl" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="83" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,17 +56,30 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblTitle">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Title:"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="&quot;Title: &quot;+ LibraryMaterial.titleName" type="code"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAuthor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Author:"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="&quot;Author: &quot;+LibraryMaterial.authorName" type="code"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPrice">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Price"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="&quot;Price: $&quot;+LibraryMaterial.itemPrice" type="code"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Label" name="yearLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="&quot;Year Published: &quot;+LibraryMaterial.publishYear" type="code"/>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>

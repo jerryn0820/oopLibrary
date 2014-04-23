@@ -33,16 +33,19 @@ public class displayForm extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblAuthor = new javax.swing.JLabel();
         lblPrice = new javax.swing.JLabel();
+        yearLbl = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("Info"); // NOI18N
         setResizable(false);
 
-        lblTitle.setText("Title:");
+        lblTitle.setText("Title: "+ LibraryMaterial.titleName);
 
-        lblAuthor.setText("Author:");
+        lblAuthor.setText("Author: "+LibraryMaterial.authorName);
 
-        lblPrice.setText("Price");
+        lblPrice.setText("Price: $"+LibraryMaterial.itemPrice);
+
+        yearLbl.setText("Year Published: "+LibraryMaterial.publishYear);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -53,8 +56,9 @@ public class displayForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitle)
                     .addComponent(lblAuthor)
-                    .addComponent(lblPrice))
-                .addContainerGap(188, Short.MAX_VALUE))
+                    .addComponent(lblPrice)
+                    .addComponent(yearLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,7 +69,9 @@ public class displayForm extends javax.swing.JFrame {
                 .addComponent(lblAuthor)
                 .addGap(33, 33, 33)
                 .addComponent(lblPrice)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(yearLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         pack();
@@ -111,5 +117,6 @@ public class displayForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblAuthor;
     private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblTitle;
+    private java.awt.Label yearLbl;
     // End of variables declaration//GEN-END:variables
 }
