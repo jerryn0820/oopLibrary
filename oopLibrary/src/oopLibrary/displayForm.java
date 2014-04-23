@@ -18,6 +18,7 @@ public class displayForm extends javax.swing.JFrame {
     public displayForm() {
         initComponents();
         setTitle("set to item name");
+        
     }
 
     /**
@@ -101,6 +102,7 @@ public class displayForm extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new displayForm().setVisible(true);
+             
             }
         });
     }
