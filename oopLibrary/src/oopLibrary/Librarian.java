@@ -23,10 +23,10 @@ public class Librarian extends javax.swing.JFrame {
     ImageIcon imgBook2 = new ImageIcon(getClass().getResource("enders.jpg"));
     ImageIcon imgBook3 = new ImageIcon(getClass().getResource("enders.jpg"));
     ImageIcon imgBook4 = new ImageIcon(getClass().getResource("enders.jpg"));
-    ImageIcon imgMedia1 = new ImageIcon(getClass().getResource("tangledPoster.jpg"));
+    ImageIcon imgMedia1 = new ImageIcon(getClass().getResource("endersmovie.jpg"));
     ImageIcon imgMedia2 = new ImageIcon(getClass().getResource("endersmovie.jpg")); 
-    ImageIcon imgMedia3 = new ImageIcon(getClass().getResource("laundryServiceShakira.jpg"));
-    ImageIcon imgMedia4 = new ImageIcon(getClass().getResource("emeliSandeOurVersionOfEvents.jpg"));
+    ImageIcon imgMedia3 = new ImageIcon(getClass().getResource("endersmovie.jpg"));
+    ImageIcon imgMedia4 = new ImageIcon(getClass().getResource("endersmovie.jpg"));
     /**
      * Creates new form Librarian
      */
@@ -241,14 +241,14 @@ public class Librarian extends javax.swing.JFrame {
         switch(intTypeCode)
         {
             case 1: lblItem1.setIcon(imgBook1);
-                    lblItem2.setIcon(imgBook2);
-                    lblItem3.setIcon(imgBook3);
-                    lblItem4.setIcon(imgBook4);
+                    lblItem2.setIcon(imgBook1);
+                    lblItem3.setIcon(imgBook1);
+                    lblItem4.setIcon(imgBook1);
                     break;
             case 2: lblItem1.setIcon(imgMedia1);
-                    lblItem2.setIcon(imgMedia2);
-                    lblItem3.setIcon(imgMedia3);
-                    lblItem4.setIcon(imgMedia4);
+                    lblItem2.setIcon(imgMedia1);
+                    lblItem3.setIcon(imgMedia1);
+                    lblItem4.setIcon(imgMedia1);
                     break;
         }
     }
