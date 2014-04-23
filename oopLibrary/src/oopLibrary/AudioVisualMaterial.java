@@ -5,7 +5,6 @@ import java.applet.*;
 import sun.audio.*;
 import java.io.*;
 /**
- *
  * @author Jen Sanders
  * This class retrieves and sets the data for the CDs and DVDs
  */
