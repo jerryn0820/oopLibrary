@@ -9,21 +9,23 @@ import java.io.*;
  * This class retrieves and sets the data for the CDs and DVDs
  */
 
-
+/** creates the class and fields */
 public class AudioVisualMaterial extends LibraryMaterial{
     protected String title;
     protected String author;
     protected int published;
     protected double price;
 
-    protected AudioVisualMaterial(String author, String title, double price, int published) {
+    /** constructor*/   
+    public AudioVisualMaterial(String author, String title, double price, int published) {
         super(author, title, price, published);
     }
-    
+    /** will set the cover in the display (if needed)*/
     protected void setCover(){    
        //to do 
     }
    
+    /**sets variables to media data to display */
    protected void setInfo(){
        LibraryMaterial.authorName = author;
        LibraryMaterial.titleName = title;
