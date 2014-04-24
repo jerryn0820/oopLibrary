@@ -10,24 +10,24 @@ import java.io.*;
  */
 
 
-public class AudioVisualMaterial {
+public class AudioVisualMaterial extends LibraryMaterial{
+    protected String title;
+    protected String author;
+    protected int published;
+    protected double price;
+
+    protected AudioVisualMaterial(String author, String title, double price, int published) {
+        super(author, title, price, published);
+    }
+    
     protected void setCover(){    
        //to do 
     }
    
-    protected static void endersSet() {
-        LibraryMaterial.displayInfo("Lionsgate", "Ender's Game", 14.99, 2013); 
-    }
- 
-    protected static void tangledSet() {
-        LibraryMaterial.displayInfo("Walt Disney", "Tangled", 14.99, 2010); 
-    }
-    
-    protected static void shakiraSet() {
-       LibraryMaterial.displayInfo("Shakira", "Laundry Service", 7.99, 2001);          
-    }
-    
-    protected static void sandeSet() {
-        LibraryMaterial.displayInfo("Emeli Sande", "Our Version of Events", 11.62, 2012);
-    }
+   protected void setInfo(){
+       LibraryMaterial.authorName = author;
+       LibraryMaterial.titleName = title;
+       LibraryMaterial.itemPrice = price;
+       LibraryMaterial.publishYear = published;
+   }
 }
