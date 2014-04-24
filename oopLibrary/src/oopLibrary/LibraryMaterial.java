@@ -13,9 +13,9 @@ package oopLibrary;
  */
 public class LibraryMaterial 
 {
-    protected static String authorName, titleName;
-    protected static double itemPrice;
-    protected static int publishYear;
+    protected String authorName, titleName;
+    protected double itemPrice;
+    protected int publishYear;
     
     /**
      * Constructor
@@ -103,7 +103,7 @@ public class LibraryMaterial
      * @param published
      * @return 
      */
-    public static String displayInfo(String author, String title, double price, int published)
+    public String displayInfo(String author, String title, double price, int published)
     {
         authorName = author;
         titleName = title;

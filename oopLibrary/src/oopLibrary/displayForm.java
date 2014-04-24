@@ -1,5 +1,9 @@
 package oopLibrary;
 
+
+import java.applet.AudioClip;
+import java.applet.Applet;
+import java.net.URL;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,16 +15,31 @@ package oopLibrary;
  * @author jerrynguyen
  */
 public class displayForm extends javax.swing.JFrame {
-
+    
+    int intTypeCode;
+    AudioClip audioFormSound;
+    URL urlClose = displayForm.class.getResource("close.wav");
     /**
      * Creates new form displayForm
      */
-    public displayForm() {
+    public displayForm() 
+    {
         initComponents();
-        setTitle("set to item name");
-        
-    }
+        audioFormSound = Applet.newAudioClip(urlClose);
 
+    }
+    
+    public void setLabelNames()
+    {
+        switch(intTypeCode)
+        {
+            case 1: lblAuthor.setText("");
+                    break;
+            case 2: 
+                    break;
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,19 +52,54 @@ public class displayForm extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblAuthor = new javax.swing.JLabel();
         lblPrice = new javax.swing.JLabel();
-        yearLbl = new java.awt.Label();
+        lblType = new javax.swing.JLabel();
+        lblEdition = new javax.swing.JLabel();
+        lblNoP = new javax.swing.JLabel();
+        lblPublished = new javax.swing.JLabel();
+        titleInfo = new javax.swing.JLabel();
+        authorInfo = new javax.swing.JLabel();
+        typeInfo = new javax.swing.JLabel();
+        priceInfo = new javax.swing.JLabel();
+        publishInfo = new javax.swing.JLabel();
+        editionInfo = new javax.swing.JLabel();
+        pagesInfo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("Info"); // NOI18N
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
-        lblTitle.setText("Title: "+ LibraryMaterial.titleName);
+        lblTitle.setText("Title:");
 
-        lblAuthor.setText("Author: "+LibraryMaterial.authorName);
+        lblAuthor.setText("Author:");
 
-        lblPrice.setText("Price: $"+LibraryMaterial.itemPrice);
+        lblPrice.setText("Price:");
 
-        yearLbl.setText("Year Published: "+LibraryMaterial.publishYear);
+        lblType.setText("Book Type:");
+
+        lblEdition.setText("Book Edition:");
+
+        lblNoP.setText("Number of Pages:");
+
+        lblPublished.setText("Year Published:");
+
+        titleInfo.setText("jLabel1");
+
+        authorInfo.setText("jLabel2");
+
+        typeInfo.setText("jLabel3");
+
+        priceInfo.setText("jLabel4");
+
+        publishInfo.setText("jLabel5");
+
+        editionInfo.setText("jLabel6");
+
+        pagesInfo.setText("jLabel7");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -54,28 +108,77 @@ public class displayForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle)
-                    .addComponent(lblAuthor)
-                    .addComponent(lblPrice)
-                    .addComponent(yearLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(147, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(titleInfo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblAuthor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(authorInfo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblNoP)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pagesInfo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblType)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(typeInfo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblPrice)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(priceInfo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblEdition)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editionInfo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblPublished)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(publishInfo)))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(lblTitle)
-                .addGap(33, 33, 33)
-                .addComponent(lblAuthor)
-                .addGap(33, 33, 33)
-                .addComponent(lblPrice)
-                .addGap(30, 30, 30)
-                .addComponent(yearLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitle)
+                    .addComponent(titleInfo))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAuthor)
+                    .addComponent(authorInfo))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblType)
+                    .addComponent(typeInfo))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPrice)
+                    .addComponent(priceInfo))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPublished)
+                    .addComponent(publishInfo))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEdition)
+                    .addComponent(editionInfo))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNoP)
+                    .addComponent(pagesInfo))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        audioFormSound.play();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -108,15 +211,24 @@ public class displayForm extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new displayForm().setVisible(true);
-             
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblAuthor;
-    private javax.swing.JLabel lblPrice;
-    private javax.swing.JLabel lblTitle;
-    private java.awt.Label yearLbl;
+    protected javax.swing.JLabel authorInfo;
+    protected javax.swing.JLabel editionInfo;
+    public javax.swing.JLabel lblAuthor;
+    public javax.swing.JLabel lblEdition;
+    public javax.swing.JLabel lblNoP;
+    public javax.swing.JLabel lblPrice;
+    public javax.swing.JLabel lblPublished;
+    public javax.swing.JLabel lblTitle;
+    public javax.swing.JLabel lblType;
+    protected javax.swing.JLabel pagesInfo;
+    protected javax.swing.JLabel priceInfo;
+    protected javax.swing.JLabel publishInfo;
+    protected javax.swing.JLabel titleInfo;
+    protected javax.swing.JLabel typeInfo;
     // End of variables declaration//GEN-END:variables
 }

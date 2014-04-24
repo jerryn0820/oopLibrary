@@ -6,19 +6,29 @@
 
 package oopLibrary;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.awt.Color;
+import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+
 
 /**
  *oopLibrary project
  * @author jerrynguyen
  * 15 April 2014
+ * Last Updated: April 23, 2014
  * Project Members: Nina Ritchie, Jennifer Sanders
+ * 
  */
+
 public class Librarian extends javax.swing.JFrame {
 
     int intTypeCode;
+    int intItemCode;
     ImageIcon imgBook1 = new ImageIcon(getClass().getResource("enders.jpg"));
     ImageIcon imgBook2 = new ImageIcon(getClass().getResource("enders.jpg"));
     ImageIcon imgBook3 = new ImageIcon(getClass().getResource("enders.jpg"));
@@ -27,11 +37,20 @@ public class Librarian extends javax.swing.JFrame {
     ImageIcon imgMedia2 = new ImageIcon(getClass().getResource("endersmovie.jpg")); 
     ImageIcon imgMedia3 = new ImageIcon(getClass().getResource("laundryServiceShakira.jpg"));
     ImageIcon imgMedia4 = new ImageIcon(getClass().getResource("emeliSandeOurVersionOfEvents.jpg"));
+    AudioClip audioFormSound;
+    URL urlOpen = Librarian.class.getResource("open.wav");
+    URL urlClose = Librarian.class.getResource("close.wav");
+    displayForm display = new displayForm();
+    AudioVisualMaterial mediaTangled = new AudioVisualMaterial("Walt Disney", "Tangled", "DVD", 14.99, 2010, imgMedia1);
+    AudioVisualMaterial mediaEnder = new AudioVisualMaterial("Lionsgate", "Ender's Game", "DVD", 14.99, 2013, imgMedia2);
+    AudioVisualMaterial mediaShakira = new AudioVisualMaterial("Shakira", "Laundry Service", "CD", 7.99, 2001, imgMedia3);
+    AudioVisualMaterial mediaESande = new AudioVisualMaterial("Emeli Sande", "Our Version of Events", "CD", 11.62, 2012, imgMedia4);
     /**
      * Creates new form Librarian
      */
     public Librarian() {
         initComponents();
+        this.getContentPane().setBackground(new Color(149,88,0));
         JOptionPane.showMessageDialog(this,
     "Welcome to the Library!\nPlease start by selecting your category.");
         intTypeCode = 0;
@@ -60,6 +79,7 @@ public class Librarian extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("The Library");
         setName("librarianFrame"); // NOI18N
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -75,8 +95,8 @@ public class Librarian extends javax.swing.JFrame {
             }
         });
 
-        btnMedia.setText("CD/DVD");
-        btnMedia.setToolTipText("");
+        btnMedia.setText("Other Media");
+
         btnMedia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMediaActionPerformed(evt);
@@ -104,11 +124,11 @@ public class Librarian extends javax.swing.JFrame {
             pnlMediaButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMediaButtonsLayout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlMediaButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMedia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pnlShelf.setBackground(new java.awt.Color(102, 102, 102));
@@ -225,7 +245,7 @@ public class Librarian extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(pnlShelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(pnlMediaButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,14 +261,24 @@ public class Librarian extends javax.swing.JFrame {
         switch(intTypeCode)
         {
             case 1: lblItem1.setIcon(imgBook1);
-                    lblItem2.setIcon(imgBook2);
-                    lblItem3.setIcon(imgBook3);
-                    lblItem4.setIcon(imgBook4);
+                    lblItem1.setToolTipText("");
+                    lblItem2.setIcon(imgBook1);
+                    lblItem2.setToolTipText("");
+                    lblItem3.setIcon(imgBook1);
+                    lblItem3.setToolTipText("");
+                    lblItem4.setIcon(imgBook1);
+                    lblItem4.setToolTipText("");
+                    audioFormSound = Applet.newAudioClip(urlOpen);
                     break;
-            case 2: lblItem1.setIcon(imgMedia1);
-                    lblItem2.setIcon(imgMedia2);
-                    lblItem3.setIcon(imgMedia3);
-                    lblItem4.setIcon(imgMedia4);
+            case 2: lblItem1.setIcon(mediaTangled.getCover());
+                    lblItem1.setToolTipText(mediaTangled.getAuthorName() + ": " + mediaTangled.getTitleName());
+                    lblItem2.setIcon(mediaEnder.getCover());
+                    lblItem2.setToolTipText(mediaEnder.getAuthorName() + ": " + mediaEnder.getTitleName());
+                    lblItem3.setIcon(mediaShakira.getCover());
+                    lblItem3.setToolTipText(mediaShakira.getAuthorName() + ": " + mediaShakira.getTitleName());
+                    lblItem4.setIcon(mediaESande.getCover());
+                    lblItem4.setToolTipText(mediaESande.getAuthorName() + ": " + mediaESande.getTitleName());
+                    audioFormSound = Applet.newAudioClip(urlOpen);
                     break;
         }
     }
@@ -261,43 +291,231 @@ public class Librarian extends javax.swing.JFrame {
         {
         JFrame displayFrame = new displayForm();       
         displayFrame.setSize(250,300);
-        displayFrame.setVisible(true);
         displayFrame.setResizable(false);
         }
     }
+    /**
+     * This method will take the value of intTypeCode selected, which is defined by the user selecting
+     * books/other media button. By using the switch statement it will change the titles of the labels
+     * according to the following category.
+     */
+    public void setLabelNames()
+    {
+        switch(intTypeCode)
+        {
+            case 1: SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                    display.setVisible(true);
+                        }
+                    });
+                    display.lblTitle.setText("Title:");
+                    display.lblAuthor.setText("Author:");
+                    display.lblType.setText("Book Type:");
+                    display.lblPrice.setText("Price:");
+                    display.lblPublished.setText("Year Published:");
+                    display.lblEdition.setText("Book Edition:");
+                    display.lblEdition.setVisible(true); 
+                    display.lblNoP.setText("Number of Pages:");
+                    display.lblNoP.setVisible(true);
+                    display.setTitle("TitleName");
+                    break;
+            case 2: SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                    display.setVisible(true);
+                        }
+                    });
+                    display.lblTitle.setText("Title:");
+                    display.lblAuthor.setText("Artist:");
+                    display.lblType.setText("Media Type:");
+                    display.lblPrice.setText("Price:");
+                    display.lblPublished.setText("Year Published:");
+                    display.lblEdition.setVisible(false);//Field is only needed for books
+                    display.lblNoP.setVisible(false);//Field is only needed for books
+                    display.editionInfo.setVisible(false);
+                    display.pagesInfo.setVisible(false);
+                    display.setTitle("TitleName");      
+                    break;
+        }
+    }
+    public void setDisplayInfo()
+    {
+        switch(intItemCode)
+        {
+            case 1: SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                    display.setVisible(true);
+                        }
+                    });
+                    display.titleInfo.setText(mediaTangled.getTitleName());
+                    display.lblAuthor.setText("Studio:");
+                    display.authorInfo.setText(mediaTangled.getAuthorName());
+                    display.typeInfo.setText(mediaTangled.getMediaType());
+                    display.priceInfo.setText("$" + Double.toString(mediaTangled.getItemPrice()));
+                    display.publishInfo.setText(Integer.toString(mediaTangled.getPublishYear()));
+                    display.lblEdition.setText("Book Edition:");
+                    display.lblEdition.setVisible(false); 
+                    display.lblNoP.setText("Number of Pages:");
+                    display.lblNoP.setVisible(false);
+                    display.setTitle(mediaTangled.getTitleName());
+                    break;
+            case 2: SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                    display.setVisible(true);
+                        }
+                    });
+                    display.titleInfo.setText(mediaEnder.getTitleName());
+                    display.lblAuthor.setText("Studio:");
+                    display.authorInfo.setText(mediaEnder.getAuthorName());
+                    display.typeInfo.setText(mediaEnder.getMediaType());
+                    display.priceInfo.setText("$" + Double.toString(mediaEnder.getItemPrice()));
+                    display.publishInfo.setText(Integer.toString(mediaEnder.getPublishYear()));
+                    display.lblEdition.setText("Book Edition:");
+                    display.lblEdition.setVisible(false); 
+                    display.lblNoP.setText("Number of Pages:");
+                    display.lblNoP.setVisible(false);
+                    display.setTitle(mediaEnder.getTitleName());      
+                    break;
+            case 3: SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                    display.setVisible(true);
+                        }
+                    });
+                    display.titleInfo.setText(mediaShakira.getTitleName());
+                    display.authorInfo.setText(mediaShakira.getAuthorName());
+                    display.typeInfo.setText(mediaShakira.getMediaType());
+                    display.priceInfo.setText("$" + Double.toString(mediaShakira.getItemPrice()));
+                    display.publishInfo.setText(Integer.toString(mediaShakira.getPublishYear()));
+                    display.lblEdition.setText("Book Edition:");
+                    display.lblEdition.setVisible(false); 
+                    display.lblNoP.setText("Number of Pages:");
+                    display.lblNoP.setVisible(false);
+                    display.setTitle(mediaShakira.getTitleName());      
+                    break;
+            case 4: SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                    display.setVisible(true);
+                        }
+                    });
+                    display.titleInfo.setText(mediaESande.getTitleName());
+                    display.authorInfo.setText(mediaESande.getAuthorName());
+                    display.typeInfo.setText(mediaESande.getMediaType());
+                    display.priceInfo.setText("$" + Double.toString(mediaESande.getItemPrice()));
+                    display.publishInfo.setText(Integer.toString(mediaESande.getPublishYear()));
+                    display.lblEdition.setText("Book Edition:");
+                    display.lblEdition.setVisible(false); 
+                    display.lblNoP.setText("Number of Pages:");
+                    display.lblNoP.setVisible(false);
+                    display.setTitle(mediaESande.getTitleName());      
+                    break;
+        }
+        
+    }
     
+    /**
+     * 
+     * @param evt mouseclick event for item1
+     */
     private void lblItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblItem1MouseClicked
         // TODO add your handling code here:
-        dislayInfoFrame();
+        intItemCode = 1;
+        if(intTypeCode != 0)
+        {
+            dislayInfoFrame();
+            setLabelNames();
+            audioFormSound.play();
+            setDisplayInfo();   
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this,
+            "Please start by selecting your category.");
+        }
     }//GEN-LAST:event_lblItem1MouseClicked
-
+    /**
+     * 
+     * @param evt mouseclick event for item2
+     */
     private void lblItem2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblItem2MouseClicked
         // TODO add your handling code here:
-        dislayInfoFrame();
+        intItemCode = 2;
+        if(intTypeCode != 0)
+        {
+            dislayInfoFrame();
+            setLabelNames();
+            audioFormSound.play();
+            setDisplayInfo();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this,
+            "Please start by selecting your category.");
+        }
     }//GEN-LAST:event_lblItem2MouseClicked
-
+    /**
+     * 
+     * @param evt mouseclick event for item3
+     */
     private void lblItem3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblItem3MouseClicked
         // TODO add your handling code here:
-        dislayInfoFrame();
-        AudioVisualMaterial.shakiraSet();
+        intItemCode = 3;
+        if(intTypeCode != 0)
+        {
+            dislayInfoFrame();
+            setLabelNames();
+            audioFormSound.play();
+            setDisplayInfo();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this,
+            "Please start by selecting your category.");
+        }
     }//GEN-LAST:event_lblItem3MouseClicked
-
+    /**
+     * 
+     * @param evt mouseclick event for item4
+     */
     private void lblItem4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblItem4MouseClicked
         // TODO add your handling code here:
-        dislayInfoFrame();
-        AudioVisualMaterial.sandeSet();
+        intItemCode = 4;
+        if(intTypeCode != 0)
+        {
+            dislayInfoFrame();
+            setLabelNames();
+            audioFormSound.play();
+            setDisplayInfo();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this,
+            "Please start by selecting your category.");
+        }
     }//GEN-LAST:event_lblItem4MouseClicked
-
+    /**
+     * 
+     * @param evt button pressed event for books
+     * Will set intTypeCode to 1
+     */
     private void btnBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBooksActionPerformed
         // TODO add your handling code here:
         intTypeCode = 1;
-        displayImages();
+        displayImages();       
     }//GEN-LAST:event_btnBooksActionPerformed
-
+    /**
+     * 
+     * @param evt button pressed event for other media
+     * Will set intTypeCode to 2
+     */
     private void btnMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMediaActionPerformed
         // TODO add your handling code here:
         intTypeCode = 2;
-        displayImages();
+        displayImages();       
     }//GEN-LAST:event_btnMediaActionPerformed
     /**
      * button event handler to confirm user from closing.
@@ -373,7 +591,7 @@ public class Librarian extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBooks;
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnMedia;
+    public javax.swing.JButton btnMedia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblItem1;
     private javax.swing.JLabel lblItem2;
